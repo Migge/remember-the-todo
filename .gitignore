@@ -1,0 +1,11 @@
+arm/
+x86/
+*~
+*.o
+*.bar
+*.obj
+*.a
+*.so
+*.moc
+.assets.index
+.settings
