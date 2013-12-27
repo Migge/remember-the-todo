@@ -20,7 +20,8 @@ GTEST_DIR = /usr/src/gtest
 USER_DIR = ..
 
 # Flags passed to the preprocessor.
-CPPFLAGS += -I$(GTEST_DIR)/include
+CPPFLAGS += -I$(GTEST_DIR)/include -I/usr/include/qt5 -fPIC
+#CPPFLAGS += -I/usr/include/qt5
 
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra
@@ -77,4 +78,4 @@ TodoItemTest.o : ./TodoItemTest.cpp \
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ./TodoItemTest.cpp
 
 TodoItemTest : TodoItem.o TodoItemTest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ -lpthread
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ -lpthread -lQt5Core

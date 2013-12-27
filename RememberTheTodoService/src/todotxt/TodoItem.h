@@ -1,36 +1,35 @@
 #ifndef TODOITEM_H
 #define TODOITEM_H
 
+#include "types.h"
 
-#include <string>
+//#include <string>
+#include <QtCore/QString>
 
 class TodoItem
 {
-public:
-  TodoItem(std::string action = "");
-  ~TodoItem();
+ public:
+  TodoItem(QString action = "");
 
-  enum Priority {
-    A,
-    B,
-    C,
-    None
-  };
+  void buildItem(QString rawstring);
 
-  void setPriority(TodoItem::Priority priority);
-  TodoItem::Priority getPriority();
+  void setAction(QString action);
+  const QString& getAction();
 
-  void setContext(std::string context);
-  const std::string& getContext();
+  void setPriority(QString priority);
+  RTT::Priority getPriority();
 
-  void setProject(std::string project);
-  const std::string& getProject();
+  void setContext(QString context);
+  const QString& getContext();
 
-private:
-  std::string action;
-  TodoItem::Priority priority;
-  std::string context;
-  std::string project;
+  void setProject(QString project);
+  const QString& getProject();
+
+ private:
+  QString action;
+  RTT::Priority priority;
+  QString context;
+  QString project;
 
 };  // end class
 
