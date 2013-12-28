@@ -39,7 +39,7 @@ void RTT::TodoItem::setAction(QString action)
 {
   this->action = action;
 }
-const QString& RTT::TodoItem::getAction()
+const QString& RTT::TodoItem::getAction() const
 {
   return this->action;
 }
@@ -48,7 +48,8 @@ void RTT::TodoItem::setPriority(RTT::Priority priority)
 {
   this->priority = priority;
 }
-RTT::Priority RTT::TodoItem::getPriority() {
+RTT::Priority RTT::TodoItem::getPriority() const
+{
   return this->priority;
 }
 
@@ -56,7 +57,7 @@ void RTT::TodoItem::setContext(QString context)
 {
   this->context = context;
 }
-const QString& RTT::TodoItem::getContext()
+const QString& RTT::TodoItem::getContext() const
 {
   return this->context;
 }
@@ -65,7 +66,21 @@ void RTT::TodoItem::setProject(QString project)
 {
   this->project = project;
 }
-const QString& RTT::TodoItem::getProject()
+const QString& RTT::TodoItem::getProject() const
 {
   return this->project;
+}
+
+bool RTT::TodoItem::operator==(const RTT::TodoItem &other) const
+{
+  return
+    getProject() == other.getProject() &&
+    getContext() == other.getContext() &&
+    getPriority() == other.getPriority() &&
+    getAction() == other.getAction();
+}
+
+bool RTT::TodoItem::operator!=(const RTT::TodoItem &other) const
+{
+  return !(*this == other);
 }

@@ -28,7 +28,7 @@ CXXFLAGS += -g -Wall -Wextra
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = TodoItemTest
+TESTS = TodoTest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -77,5 +77,12 @@ TodoItemTest.o : ./TodoItemTest.cpp \
                  $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ./TodoItemTest.cpp
 
-TodoItemTest : TodoItem.o TodoItemTest.o gtest_main.a
+TodoList.o : $(USER_DIR)/TodoList.cpp $(USER_DIR)/TodoList.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/TodoList.cpp
+
+TodoListTest.o : ./TodoListTest.cpp \
+                 $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ./TodoListTest.cpp
+
+TodoTest : TodoItem.o TodoItemTest.o TodoList.o TodoListTest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ -lpthread -lQt5Core

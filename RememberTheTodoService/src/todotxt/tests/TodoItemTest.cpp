@@ -70,3 +70,17 @@ TEST(TodoItemTest, TestMultipleContexts) {
   item.buildItem("Handla @Errands @Work");
   EXPECT_STREQ(item.getContext().toUtf8().data(), "@Errands");
 }
+
+TEST(TodoItemTest, TestEqualItems) {
+  RTT::TodoItem item1, item2;
+  item1.buildItem("(A) Hälsa på pappa @Errands +Kalle");
+  item2.buildItem("   (A) Hälsa +Kalle på @Errands   pappa  ");
+  EXPECT_TRUE(item1 == item2);
+}
+
+TEST(TodoItemTest, TestNotEqualItems) {
+  RTT::TodoItem item1, item2;
+  item1.buildItem("(A) Hälsa på pappa @Errands +Kalle");
+  item2.buildItem("   (A) Hälsa +Kallee på @Errands   pappa  ");
+  EXPECT_TRUE(item1 != item2);
+}

@@ -15,20 +15,22 @@ namespace RTT {
   {
   public:
     TodoItem(QString action = "");
+    bool operator==(const TodoItem &other) const;
+    bool operator!=(const TodoItem &other) const;
 
     void buildItem(QString rawstring);
 
     void setAction(QString action);
-    const QString& getAction();
+    const QString& getAction() const;
 
     void setPriority(Priority priority);
-    Priority getPriority();
+    Priority getPriority() const;
 
     void setContext(QString context);
-    const QString& getContext();
+    const QString& getContext() const;
 
     void setProject(QString project);
-    const QString& getProject();
+    const QString& getProject() const;
 
   private:
     QString action;
@@ -39,5 +41,6 @@ namespace RTT {
   };  // end class
 
 }  // end namespace
+
 
 #endif  // TODOITEM_H
