@@ -20,7 +20,7 @@ GTEST_DIR = /usr/src/gtest
 USER_DIR = ..
 
 # Flags passed to the preprocessor.
-CPPFLAGS += -I$(GTEST_DIR)/include -I/usr/include/qt5 -fPIC
+CPPFLAGS += -I$(GTEST_DIR)/include -I/usr/include/qt5 -fPIC --coverage
 #CPPFLAGS += -I/usr/include/qt5
 
 # Flags passed to the C++ compiler.

@@ -3,3 +3,4 @@
 * lcov
 * How to handle multiple contexts?
 * Should handle multiple projects (tags)
+* How to handle conflicts

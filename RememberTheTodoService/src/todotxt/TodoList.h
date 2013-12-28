@@ -14,11 +14,16 @@ namespace RTT {
   public:
     TodoList();
     TodoItem operator[](std::size_t idx);
+    int size();
 
     void buildList(QString rawfile);
 
+    int nrOfRemovedItems();
+    TodoItem getRemovedItem(std::size_t idx);
+
   private:
-    QList<RTT::TodoItem> internalList;
+    QList<TodoItem> internalList;
+    QList<TodoItem> removedList;
 
   };  // end class
 

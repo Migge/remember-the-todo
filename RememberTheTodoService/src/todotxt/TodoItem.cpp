@@ -32,7 +32,7 @@ void RTT::TodoItem::buildItem(QString rawstring)
     setProject(cap);
     str.remove(cap);
   }
-  this->action = str.simplified();
+  setAction(str.simplified());
 }
 
 void RTT::TodoItem::setAction(QString action)
