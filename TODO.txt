@@ -1,0 +1,5 @@
+* Doxygen
+* CMake
+* lcov
+* How to handle multiple contexts?
+* Should handle multiple projects (tags)
