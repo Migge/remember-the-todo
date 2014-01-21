@@ -18,6 +18,8 @@
 #define SERVICE_H_
 
 #include <QObject>
+#include <QFileSystemWatcher>
+#include <bb/pim/account/AccountService>
 
 namespace bb {
 	class Application;
@@ -28,6 +30,12 @@ namespace bb {
 		class InvokeManager;
 		class InvokeRequest;
 	}
+	namespace pim {
+		namespace notebook {
+			class NotebookService;
+			class Notebook;
+		}
+	}
 }
 
 class Service: public QObject {
@@ -35,15 +43,26 @@ class Service: public QObject {
 public:
 	Service(bb::Application * app);
 
+
+
 private slots:
 	void handleInvoke(const bb::system::InvokeRequest &);
 	void onTimeout();
+	void onFileChanged(const QString &path);
 
 private:
 	bb::platform::Notification * m_notify;
 	bb::system::InvokeManager * m_invokeManager;
 
+	bb::pim::notebook::NotebookService * m_notebookService;
+	bb::pim::account::AccountKey m_accountKey;
+
+	QFileSystemWatcher * m_fileSystemWatcher;
+
 	void triggerNotification();
+
+	unsigned int getNotebook(const QString &name);
+	void dumpTodoFile();
 };
 
 #endif /* SERVICE_H_ */

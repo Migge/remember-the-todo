@@ -4,29 +4,43 @@ BASEDIR =  $$quote($$_PRO_FILE_PWD_)
 device {
     CONFIG(debug, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/main.cpp) \
-                 $$quote($$BASEDIR/src/service.cpp)
+                 $$quote($$BASEDIR/src/service.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/service.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/service.hpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.h) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.h)
     }
 
     CONFIG(release, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/main.cpp) \
-                 $$quote($$BASEDIR/src/service.cpp)
+                 $$quote($$BASEDIR/src/service.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/service.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/service.hpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.h) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.h)
     }
 }
 
 simulator {
     CONFIG(debug, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/main.cpp) \
-                 $$quote($$BASEDIR/src/service.cpp)
+                 $$quote($$BASEDIR/src/service.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.cpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/service.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/service.hpp) \
+                 $$quote($$BASEDIR/src/todotxt/TodoItem.h) \
+                 $$quote($$BASEDIR/src/todotxt/TodoList.h)
     }
 }
 
-INCLUDEPATH +=  $$quote($$BASEDIR/src)
+INCLUDEPATH +=  $$quote($$BASEDIR/src/todotxt/tests) \
+         $$quote($$BASEDIR/src/todotxt) \
+         $$quote($$BASEDIR/src)
 
 CONFIG += precompile_header
 
@@ -38,6 +52,111 @@ lupdate_inclusion {
              $$quote($$BASEDIR/../src/*.cc) \
              $$quote($$BASEDIR/../src/*.cpp) \
              $$quote($$BASEDIR/../src/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/tests/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/tests/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/tests/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/tests/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/todotxt/tests/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/bits/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/bits/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/bits/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/bits/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/bits/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/ext/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/ext/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/ext/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/ext/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/c++/4.8/ext/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/internal/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/internal/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/internal/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/internal/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/gtest/internal/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/QtCore/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/QtCore/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/QtCore/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/QtCore/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/qt5/QtCore/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/bits/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/bits/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/bits/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/bits/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/include/x86_64-linux-gnu/c++/4.8/bits/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/*.cxx) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/src/*.c) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/src/*.c++) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/src/*.cc) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/src/*.cpp) \
+             $$quote($$BASEDIR/../src/todotxt/tests/usr/src/gtest/src/*.cxx) \
              $$quote($$BASEDIR/../assets/*.qml) \
              $$quote($$BASEDIR/../assets/*.js) \
              $$quote($$BASEDIR/../assets/*.qs)

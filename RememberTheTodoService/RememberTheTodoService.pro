@@ -4,4 +4,4 @@ CONFIG += qt warn_on
 
 include(config.pri)
 
-LIBS += -lbb -lbbsystem -lbbplatform
+LIBS += -lbb -lbbsystem -lbbplatform -lbbpim -lQtSql -lQtXml
