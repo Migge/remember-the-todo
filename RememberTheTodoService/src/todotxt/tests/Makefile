@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /usr/src/gtest
+GTEST_DIR = /usr/src/gmock/gtest
 
 # Where to find user code.
 USER_DIR = ..
@@ -32,8 +32,8 @@ TESTS = TodoTest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
-GTEST_HEADERS = /usr/include/gtest/*.h \
-                /usr/include/gtest/internal/*.h
+GTEST_HEADERS = /usr/src/gmock/gtest/include/gtest/*.h \
+                /usr/src/gmock/gtest/include/gtest/internal/*.h
 
 # House-keeping build targets.
 
@@ -73,16 +73,16 @@ gtest_main.a : gtest-all.o gtest_main.o
 TodoItem.o : $(USER_DIR)/TodoItem.cpp $(USER_DIR)/TodoItem.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/TodoItem.cpp
 
-TodoItemTest.o : ./TodoItemTest.cpp \
+TodoItemTest.o : $(USER_DIR)/TodoItemTest.cpp \
                  $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ./TodoItemTest.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/TodoItemTest.cpp
 
 TodoList.o : $(USER_DIR)/TodoList.cpp $(USER_DIR)/TodoList.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/TodoList.cpp
 
-TodoListTest.o : ./TodoListTest.cpp \
+TodoListTest.o : $(USER_DIR)/TodoListTest.cpp \
                  $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ./TodoListTest.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/TodoListTest.cpp
 
 TodoTest : TodoItem.o TodoItemTest.o TodoList.o TodoListTest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ -lpthread -lQt5Core

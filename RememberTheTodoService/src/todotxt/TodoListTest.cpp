@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../TodoList.h"
+#include "TodoList.h"
 
 #define RAWLIST  "Äta frukost\n(A) Handla @Errands\nPryla Björk +Viktigt\nHej"
 #define RAWLIST2 "  Äta frukost\nHandla\n Hej\n+Viktigt Pryla Björk"

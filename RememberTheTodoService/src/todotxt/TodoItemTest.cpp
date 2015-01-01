@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../TodoItem.h"
+#include "TodoItem.h"
 
 #define STANDARDITEM "   (B) Pryla @Home    Björk    +Viktigt  "
 
