@@ -65,10 +65,16 @@ TEST(TodoItemTest, TestPriorityZ) {
   EXPECT_EQ(item.getPriority(), RTT::Z);
 }
 
-TEST(TodoItemTest, TestMultipleContexts) {
+TEST(TodoItemTest, TestMultipleContextsFirstOK) {
   RTT::TodoItem item;
   item.buildItem("Handla @Errands @Work");
   EXPECT_STREQ(item.getContext().toUtf8().data(), "@Errands");
+}
+
+TEST(TodoItemTest, TestMultipleContextsSecondFail) {
+  RTT::TodoItem item;
+  item.buildItem("Handla @Errands @Work");
+  EXPECT_STRNE(item.getContext().toUtf8().data(), "@Work");
 }
 
 TEST(TodoItemTest, TestEqualItems) {

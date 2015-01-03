@@ -14,19 +14,23 @@ namespace RTT {
   public:
     TodoList();
     TodoItem operator[](std::size_t idx);
-    int size();
+    bool operator==(const TodoList &other) const;
+    int size() const;
 
-    void buildList(QString rawfile);
+    void buildList(const QString rawfile);
+    void addItem(const TodoItem item);
+    bool hasItem(const TodoItem item) const;
+    void removeItem(const TodoItem item);
 
-    int nrOfRemovedItems();
-    TodoItem getRemovedItem(std::size_t idx);
+    //int nrOfRemovedItems();
+    //TodoItem getRemovedItem(std::size_t idx);
 
   private:
-    QList<TodoItem> internalList;
-    QList<TodoItem> removedList;
+    QList<TodoItem> todoList;
+    //QList<TodoItem> removedList;
 
-  };  // end class
+  };  // end class TodoList
 
-}  // end namespace
+}  // end namespace RTT
 
 #endif  // TODOLIST_H

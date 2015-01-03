@@ -1,0 +1,18 @@
+* Skapa TodoList C av cachad todo.txt
+* Skapa TodoList N av ny todo.txt från Dropbox
+* Skapa TodoList T av alla actions från alla foldrar
+* Skapa ny tom TodoList A för Added items
+* Skapa ny tom TodoList X för Removed items
+* För varje item i T som INTE finns C, lägg till i A
+* För varje item i C som INTE finns T, lägg till i X
+* Ta bort alla TodoItem i X från N
+* Lägg till alla TodoItem i A i N
+* Om N skiljer sig från T
+  - Skapa ny TodoList Z=N
+  - För varje task:
+    * Om den inte finns i Z, markera som done
+    * Annars, ta bort den från Z
+  - För varje återstående TodoItem i Z:
+    * Lägg till task i vederbörande folder
+* Spara N till Dropbox
+* Cacha C=N

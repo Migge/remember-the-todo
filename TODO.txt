@@ -4,3 +4,4 @@
 * How to handle multiple contexts?
 * Should handle multiple projects (tags)
 * How to handle conflicts
+* Button for clearing done tasks in action folders
